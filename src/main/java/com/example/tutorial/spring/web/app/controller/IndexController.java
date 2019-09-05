@@ -13,9 +13,7 @@ public class IndexController {
     public String index(Model model){
         model.addAttribute("titulo","Ifyum");
         model.addAttribute("cuerpo","hola esto viene desde el back a la vista");
-
-
-        return "index";
+      return "index";
     }
 }
 
