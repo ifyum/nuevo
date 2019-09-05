@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Ifyum</title>
-   <h1>hola jose aqui ire haciendo el tutorial de springbot</h1>
+    <title th:text="${titulo}"></title>
+   <h1><cuerpo th:text="${cuerpo}"></cuerpo></h1>
 </head>
 <body>
 
