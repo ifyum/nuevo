@@ -1,22 +1,22 @@
 package com.example.tutorial.spring.web.app.models;
 
 public class Videos {
-    private String Titulo;
-    private String Descripcion;
+    private String titulo;
+    private String descripcion;
 
     public String getTitulo() {
-        return Titulo;
+        return titulo;
     }
 
     public void setTitulo(String titulo) {
-        Titulo = titulo;
+        this.titulo = titulo;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        this.descripcion = descripcion;
     }
 }
