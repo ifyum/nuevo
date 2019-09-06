@@ -1,5 +1,6 @@
 package com.example.tutorial.spring.web.app.controller;
 
+import com.example.tutorial.spring.web.app.models.Videos;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,12 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/videos")
 public class VideosController {
-
-    @GetMapping({"/video", "/" , "" ,  "/Videos"})
+// se puede usar GetMapping o RequestMapping da lo mismo
+    @RequestMapping({"/video", "/" , "" ,  "/Videos"})
     public String videos(Model model){ //ModelMap hace lo mismo que Model
-        String texto = "-esto es una variable-";
-        model.addAttribute("titulo","Ifyum");
-        model.addAttribute("cuerpo","hola esto viene desde el back a la vista "+texto);
+        Videos video = new Videos();
+        video.setTitulo("Warframe");
+        video.setDescripcion("Este es un gameplay de warframe");
+        model.addAttribute("titulo",video.getTitulo());
+        model.addAttribute("descripcion",video.getDescripcion());
+
         return "videos";
     }
 
