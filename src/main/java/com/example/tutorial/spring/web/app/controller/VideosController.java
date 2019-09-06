@@ -4,10 +4,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/Videos")
+@RequestMapping("/videos")
 public class VideosController {
 
-    @GetMapping({"/index", "/" ,"" ,  "/home"})
+    @GetMapping({"/index", "/" , "" ,  "/home"})
     public String index(Model model){ //ModelMap hace lo mismo que Model
         String texto = "-esto es una variable-";
         model.addAttribute("titulo","Ifyum");
