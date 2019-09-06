@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/videos")
 public class VideosController {
 
-    @GetMapping({"/index", "/" , "" ,  "/home"})
+    @GetMapping({"/videos", "/" , "" ,  "/Videos"})
     public String index(Model model){ //ModelMap hace lo mismo que Model
         String texto = "-esto es una variable-";
         model.addAttribute("titulo","Ifyum");
