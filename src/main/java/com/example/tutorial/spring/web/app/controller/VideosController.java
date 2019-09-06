@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class VideosController {
 
     @GetMapping({"/videos", "/" , "" ,  "/Videos"})
-    public String index(Model model){ //ModelMap hace lo mismo que Model
+    public String videos(Model model){ //ModelMap hace lo mismo que Model
         String texto = "-esto es una variable-";
         model.addAttribute("titulo","Ifyum");
         model.addAttribute("cuerpo","hola esto viene desde el back a la vista"+texto);
-        return "index";
+        return "videos";
     }
 
 }
