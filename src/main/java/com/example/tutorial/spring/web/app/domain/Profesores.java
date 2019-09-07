@@ -16,6 +16,11 @@ public class Profesores {
     @Column (name="apellido")
     private String apellido;
 
+
+    @ManyToOne
+    @JoinColumn(name = "id_curso", nullable = false, updatable = false)
+    private Cursos CursoId;
+
     @Column(name = "rut")
     private String rut;
 
@@ -51,6 +56,14 @@ public class Profesores {
         this.rut = rut;
     }
 
+    public Cursos getCursoId() {
+        return CursoId;
+    }
+
+    public void setCursoId(Cursos cursoId) {
+        CursoId = cursoId;
+    }
+
     @Override
     public String toString() {
         return "Profesores{" +
@@ -60,4 +73,6 @@ public class Profesores {
                 ", rut='" + rut + '\'' +
                 '}';
     }
+
+
 }

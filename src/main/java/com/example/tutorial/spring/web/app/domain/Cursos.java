@@ -2,10 +2,11 @@ package com.example.tutorial.spring.web.app.domain;
 
 
 import com.example.tutorial.spring.web.app.domain.enumeration.CursosEnum;
-
+import com.example.tutorial.spring.web.app.domain.enumeration.LetrasEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
@@ -17,22 +18,26 @@ public class Cursos implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "Sala")
+    @Column(name = "sala")
     private Long Sala;
 
-    @Column(name = "Profesor_Jefe")
+    @Column(name = "profesor_jefe")
     private String profesorJefe;
 
-//    @JoinColumn
-//    @OneToOne (mappedBy = "profesor")
-//    private Profesores profesor;
+    @JoinColumn(name = "profesor_id", nullable = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Profesores profesor;
 
-    @Column(name = "Cantidad_Alumnos")
+    @Column(name = "cantidad_alumnos")
     private Long cantidadAlumnos;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "Cursos")
-    private CursosEnum curso;
+    @Column(name = "letra")
+    private LetrasEnum letra;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Curso")
+    private CursosEnum Curso;
 
     public Cursos() {
     }
@@ -69,14 +74,22 @@ public class Cursos implements Serializable {
         this.cantidadAlumnos = cantidadAlumnos;
     }
 
-    public CursosEnum getCurso() {
-        return curso;
-    }
 
     public void setCurso(CursosEnum curso) {
-        this.curso = curso;
+        this.letra = letra;
     }
 
+    public void getCurso(CursosEnum curso) {
+        this.letra = letra;
+    }
+
+    public LetrasEnum getLetra() {
+        return letra;
+    }
+
+    public void setLetra(LetrasEnum letra) {
+        this.letra = letra;
+    }
 
     @Override
     public String toString() {
@@ -84,8 +97,10 @@ public class Cursos implements Serializable {
                 "id=" + id +
                 ", Sala=" + Sala +
                 ", profesorJefe='" + profesorJefe + '\'' +
+                ", profesor=" + profesor +
                 ", cantidadAlumnos=" + cantidadAlumnos +
-                ", curso=" + curso +
+                ", letra=" + letra +
+                ", Curso=" + Curso +
                 '}';
     }
 }
