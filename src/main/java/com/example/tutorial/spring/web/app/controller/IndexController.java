@@ -24,15 +24,7 @@ public class IndexController {
         String texto = "-esto es una variable-";
         model.addAttribute("titulo","Ifyum");
         model.addAttribute("cuerpo","hola esto viene desde el back a la vista"+texto);
-
-
-        this.profesores.setNombre("samuel");
-        this.profesores.setApellido("concha");
-        this.profesores.setRut("17487203-1");
-        this.cursos.setCantidadAlumnos(Long.valueOf(32));
-        this.cursos.setCurso(CursosEnum.PRIMERO);
-        this.cursos.setLetra(LetrasEnum.A);
-      return "index";
+       return "index";
     }
 
 
