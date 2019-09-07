@@ -23,6 +23,10 @@ public class Cursos implements Serializable {
     @Column(name = "Profesor_Jefe")
     private String profesorJefe;
 
+//    @JoinColumn
+//    @OneToOne (mappedBy = "profesor")
+//    private Profesores profesor;
+
     @Column(name = "Cantidad_Alumnos")
     private Long cantidadAlumnos;
 
