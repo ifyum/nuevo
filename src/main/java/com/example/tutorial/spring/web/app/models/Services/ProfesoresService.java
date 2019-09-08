@@ -6,7 +6,7 @@ import com.example.tutorial.spring.web.app.repository.CursosRepository;
 import com.example.tutorial.spring.web.app.repository.ProfesoresRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,8 +15,8 @@ import java.util.List;
 
 
 
-@Service
-@Transactional
+@Component
+//@Transactional
 
 public class ProfesoresService {
     private final Logger log = LoggerFactory.getLogger(ProfesoresService.class);
@@ -28,10 +28,16 @@ public class ProfesoresService {
 
      public String creado(){
 
-  profesoresRepository.findAll();
+
 
         return    " desde el service";
     }
 
+
+    public  List<Profesores> ListarProfesores(){
+
+
+        return    profesoresRepository.findAll();
+    }
 
 }

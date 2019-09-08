@@ -4,26 +4,29 @@
     <meta charset="UTF-8"/>
     <title th:text="${titulo}"></title>
 <!--    <h1 th:text="${profesores}"></h1>-->
+    <body>
     <table>
         <thead>
-        <tr>
-     <th>id</th>
-    <th>nombre</th>
-    <th>apellido</th>
-    <th>rut</th>
+             <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>apellido</th>
+                <th>rut</th>
+                <th>curso</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="profesores: ${profesores}">
-        <td>th:text= ${profesores.id}</td>
-            <td>th:text= ${profesores.nombre}</td>
-            <td>th:text= ${profesores.apellido}</td>
-            <td>th:text= ${profesores.rut}</td>
+            <td th:text= "${profesores}"></td>
+<!--            <td th:text= "${profesores}"></td>-->
+<!--            <td th:text= "${profesores}"></td>-->
+<!--            <td th:text= "${profesores}"></td>-->
+<!--            <td th:text= "${profesores}"></td>-->
         </tr>
 
         </tbody>
     </table>
-
+</body>
 </head>
 <body>
 

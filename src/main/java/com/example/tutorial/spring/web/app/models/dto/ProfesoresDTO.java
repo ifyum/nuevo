@@ -1,6 +1,8 @@
 package com.example.tutorial.spring.web.app.models.dto;
 
 
+import java.io.Serializable;
+
 public class ProfesoresDTO {
 
   private long id;
