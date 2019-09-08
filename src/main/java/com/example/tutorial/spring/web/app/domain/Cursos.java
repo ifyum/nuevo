@@ -14,8 +14,7 @@ import java.util.Set;
 
 public class Cursos implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "sala")
@@ -29,7 +28,7 @@ public class Cursos implements Serializable {
     private Profesores profesor;
 
     @Column(name = "cantidad_alumnos")
-    private Long cantidadAlumnos;
+    private Integer cantidadAlumnos;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "letra")
@@ -66,21 +65,20 @@ public class Cursos implements Serializable {
         this.profesorJefe = profesorJefe;
     }
 
-    public Long getCantidadAlumnos() {
+    public Integer getCantidadAlumnos() {
         return cantidadAlumnos;
     }
 
-    public void setCantidadAlumnos(Long cantidadAlumnos) {
+    public void setCantidadAlumnos(Integer cantidadAlumnos) {
         this.cantidadAlumnos = cantidadAlumnos;
     }
 
-
-    public void setCurso(CursosEnum curso) {
-        this.letra = letra;
+    public CursosEnum getCurso() {
+        return Curso;
     }
 
-    public void getCurso(CursosEnum curso) {
-        this.letra = letra;
+    public void setCurso(CursosEnum curso) {
+        Curso = curso;
     }
 
     public LetrasEnum getLetra() {
@@ -89,6 +87,14 @@ public class Cursos implements Serializable {
 
     public void setLetra(LetrasEnum letra) {
         this.letra = letra;
+    }
+
+    public Profesores getProfesor() {
+        return profesor;
+    }
+
+    public void setProfesor(Profesores profesor) {
+        this.profesor = profesor;
     }
 
     @Override

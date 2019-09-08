@@ -1,13 +1,16 @@
 package com.example.tutorial.spring.web.app.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="Profesores")
-public class Profesores {
+public class Profesores implements Serializable {
+
+    private static  final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="nombre")
@@ -18,12 +21,16 @@ public class Profesores {
 
 
     @ManyToOne
-    @JoinColumn(name = "id_curso", nullable = false, updatable = false)
+    @JoinColumn(name = "id_curso")
     private Cursos CursoId;
 
     @Column(name = "rut")
     private String rut;
 
+//mierda muy importante
+    public Profesores() {
+    }
+    //
     public Long getId() {
         return id;
     }
@@ -73,6 +80,7 @@ public class Profesores {
                 ", rut='" + rut + '\'' +
                 '}';
     }
+
 
 
 }
