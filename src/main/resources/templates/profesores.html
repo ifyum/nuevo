@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title th:text="${titulo}"></title>
-<!--    <h1 th:text="${profesores}"></h1>-->
+</head>
     <body>
     <table>
         <thead>
@@ -12,8 +12,7 @@
                 <th>nombre</th>
                 <th>apellido</th>
                 <th>rut</th>
-                <th>curso</th>
-        </tr>
+             </tr>
         </thead>
         <tbody>
         <tr th:each="profesores: ${profesores}">
@@ -21,14 +20,36 @@
             <td th:text= "${profesores.nombre}"></td>
             <td th:text= "${profesores.apellido}"></td>
             <td th:text= "${profesores.rut}"></td>
-            <td th:text= "${profesores.cursoId}"></td>
+         </tr>
+
+        </tbody>
+    </table>
+<br>
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>curso</th>
+            <th>sala</th>
+            <th>cantidad de alumnos</th>
+            <th>letra</th>
+            <th>profesor jefe</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="profesores: ${profesores}">
+            <td th:text= "${profesores.cursoId.id}"></td>
+            <td th:text= "${profesores.cursoId.curso}"></td>
+            <td th:text= "${profesores.cursoId.sala}"></td>
+             <td th:text= "${profesores.cursoId.cantidadAlumnos}"></td>
+            <td th:text= "${profesores.cursoId.letra}"></td>
+            <td th:text="${profesores.cursoId.profesorJefe.nombre} "></td>
         </tr>
 
         </tbody>
     </table>
-</body>
-</head>
-<body>
 
 </body>
+
 </html>

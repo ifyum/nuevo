@@ -20,12 +20,10 @@ public class Cursos implements Serializable {
     @Column(name = "sala")
     private Long Sala;
 
-    @Column(name = "profesor_jefe")
-    private String profesorJefe;
 
-    @JoinColumn(name = "profesor_id", nullable = false)
+    @JoinColumn(name = "profesor_jefe_id", nullable = false)
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Profesores profesor;
+    private Profesores profesorJefe;
 
     @Column(name = "cantidad_alumnos")
     private Integer cantidadAlumnos;
@@ -57,11 +55,11 @@ public class Cursos implements Serializable {
         Sala = sala;
     }
 
-    public String getProfesorJefe() {
+    public Profesores getProfesorJefe() {
         return profesorJefe;
     }
 
-    public void setProfesorJefe(String profesorJefe) {
+    public void setProfesorJefe(Profesores profesorJefe) {
         this.profesorJefe = profesorJefe;
     }
 
@@ -73,14 +71,6 @@ public class Cursos implements Serializable {
         this.cantidadAlumnos = cantidadAlumnos;
     }
 
-    public CursosEnum getCurso() {
-        return Curso;
-    }
-
-    public void setCurso(CursosEnum curso) {
-        Curso = curso;
-    }
-
     public LetrasEnum getLetra() {
         return letra;
     }
@@ -89,12 +79,12 @@ public class Cursos implements Serializable {
         this.letra = letra;
     }
 
-    public Profesores getProfesor() {
-        return profesor;
+    public CursosEnum getCurso() {
+        return Curso;
     }
 
-    public void setProfesor(Profesores profesor) {
-        this.profesor = profesor;
+    public void setCurso(CursosEnum curso) {
+        Curso = curso;
     }
 
     @Override
@@ -102,8 +92,7 @@ public class Cursos implements Serializable {
         return "Cursos{" +
                 "id=" + id +
                 ", Sala=" + Sala +
-                ", profesorJefe='" + profesorJefe + '\'' +
-                ", profesor=" + profesor +
+                ", profesor=" + profesorJefe +
                 ", cantidadAlumnos=" + cantidadAlumnos +
                 ", letra=" + letra +
                 ", Curso=" + Curso +

@@ -20,9 +20,6 @@ public class ProfesoresController {
 
     @RequestMapping( value ="/profesores",method=RequestMethod.GET)
         public String listar(Model model){
-
-
-
         model.addAttribute("titulo","Ifyum");
         model.addAttribute("profesores",profesoresRepository.findAll());
         return "profesores";
