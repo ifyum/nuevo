@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title th:text="${titulo}"></title>
+    <title >Profesores</title>
 </head>
     <body>
     <table>
@@ -38,14 +38,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="profesores: ${profesores}">
-            <td th:text= "${profesores.cursoId.id}"></td>
-            <td th:text= "${profesores.cursoId.curso}"></td>
-            <td th:text= "${profesores.cursoId.sala}"></td>
-             <td th:text= "${profesores.cursoId.cantidadAlumnos}"></td>
-            <td th:text= "${profesores.cursoId.letra}"></td>
-            <td th:text="${profesores.cursoId.profesorJefe.nombre} "></td>
-        </tr>
+<!--        <tr th:each="profesores: ${profesores}">-->
+<!--            <td th:object= "${profesores.cursoId.id}"></td>-->
+<!--            <td th:object= "${profesores.cursoId.curso}"></td>-->
+<!--            <td th:object= "${profesores.cursoId.sala}"></td>-->
+<!--             <td th:object= "${profesores.cursoId.cantidadAlumnos}"></td>-->
+<!--            <td th:object= "${profesores.cursoId.letra}"></td>-->
+<!--            <td th:object="${profesores.cursoId.profesorJefe.nombre} "></td>-->
+<!--        </tr>-->
 
         </tbody>
     </table>
