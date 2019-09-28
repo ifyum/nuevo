@@ -5,8 +5,12 @@
       <title th:text="${titulo}"></title>
                <h1 th:text="${video.titulo}"></h1>
     <span th:text="${video.descripcion}"></span>
-
-<video src="/01-Introduccio-al-curso/001-Introduccion.mp4" width="1680" height=720"></video>
+</span>
+<video src="videos/001-Introduccion.mp4" type = "video/mp4" ></video>
+<br>
+    <video controls>
+     <source src = "videos/001-Introduccion.mp4" type = "video/mp4"  />
+</video>
 
 </head>
 <body>

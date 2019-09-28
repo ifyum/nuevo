@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProfesoresRepository extends JpaRepository<Profesores,Long> {
 
-
+//public List<Profesores>
 
 }

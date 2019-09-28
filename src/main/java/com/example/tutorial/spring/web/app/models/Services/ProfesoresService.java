@@ -43,6 +43,15 @@ private final ProfesoresMapper profesoresMapper;
         log.debug("weada:"+profesoresRepository.findAll().stream().map(this.profesoresMapper::toDto).collect(Collectors.toList()));
         return profesoresRepository.findAll().stream().map(this.profesoresMapper::toDto).collect(Collectors.toList());
     }
+    public List<ProfesoresDTO> filtro(){
+
+        log.debug("weada:"+profesoresRepository.findAll().stream().map(this.profesoresMapper::toDto).collect(Collectors.toList()));
+
+
+        return filtro();
+    }
+
+
 
     public Optional<ProfesoresDTO> findById(Long id){
      return  profesoresRepository.findById(id).map(this.profesoresMapper::toDto);
