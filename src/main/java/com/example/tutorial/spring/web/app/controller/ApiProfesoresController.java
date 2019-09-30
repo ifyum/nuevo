@@ -1,5 +1,6 @@
 package com.example.tutorial.spring.web.app.controller;
 
+import com.example.tutorial.spring.web.app.models.Services.FechasService;
 import com.example.tutorial.spring.web.app.models.Services.ProfesoresService;
 import com.example.tutorial.spring.web.app.models.dto.ProfesoresDTO;
 import com.example.tutorial.spring.web.app.repository.ProfesoresRepository;
@@ -22,6 +23,9 @@ public class ApiProfesoresController {
     @Qualifier("profesoresService")
     private ProfesoresService profesoresService;
     private ProfesoresRepository profesoresRepository;
+    @Autowired
+    @Qualifier("fechasService")
+    private FechasService fechasService;
 
     @GetMapping( "/profesores")
     public List<ProfesoresDTO> listar (){
@@ -36,6 +40,14 @@ public class ApiProfesoresController {
         return profesoresService.findById(id);
     }
 
+    @GetMapping("/fechas")
+    public String fechas(){
+    String[] annos= new String[20];
+    annos[0]="2019";
+//        annos[1]="2020";
+        fechasService.fecha( annos);
+        return null;
+    }
 
 
 }
