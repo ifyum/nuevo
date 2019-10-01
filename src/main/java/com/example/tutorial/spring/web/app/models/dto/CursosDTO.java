@@ -11,7 +11,7 @@ public class CursosDTO {
     private Long Sala;
 
 
-    private ProfesoresDTO profesorJefe;
+    private Long profesorId;
 
 
     private Integer cantidadAlumnos;
@@ -41,12 +41,12 @@ public class CursosDTO {
         Sala = sala;
     }
 
-    public ProfesoresDTO getProfesorJefe() {
-        return profesorJefe;
+    public Long getProfesorId() {
+        return profesorId;
     }
 
-    public void setProfesorJefe(ProfesoresDTO profesorJefe) {
-        this.profesorJefe = profesorJefe;
+    public void setProfesorId(Long profesorId) {
+        this.profesorId = profesorId;
     }
 
     public Integer getCantidadAlumnos() {
@@ -75,15 +75,13 @@ public class CursosDTO {
 
     @Override
     public String toString() {
-        return "Cursos{" +
+        return "CursosDTO{" +
                 "id=" + id +
                 ", Sala=" + Sala +
-                ", profesor=" + profesorJefe +
+                ", profesorId=" + profesorId +
                 ", cantidadAlumnos=" + cantidadAlumnos +
                 ", letra=" + letra +
                 ", Curso=" + Curso +
                 '}';
     }
-
-
 }

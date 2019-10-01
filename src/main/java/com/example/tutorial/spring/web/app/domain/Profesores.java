@@ -22,11 +22,13 @@ public class Profesores implements Serializable {
 
 
     @ManyToOne
-    @JoinColumn(name = "id_curso")
-    private Cursos CursoId;
+    @JoinColumn(name = "curso")
+    private Cursos curso;
 
     @Column(name = "rut")
     private String rut;
+    @Column(name = "foto")
+    private String foto;
 
     @Column(name = "fecha_hoy")
     private Calendar fechahoy;
@@ -38,6 +40,8 @@ public class Profesores implements Serializable {
     public Profesores() {
     }
     //
+
+
     public Long getId() {
         return id;
     }
@@ -62,6 +66,14 @@ public class Profesores implements Serializable {
         this.apellido = apellido;
     }
 
+    public Cursos getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Cursos curso) {
+        this.curso = curso;
+    }
+
     public String getRut() {
         return rut;
     }
@@ -70,12 +82,12 @@ public class Profesores implements Serializable {
         this.rut = rut;
     }
 
-    public Cursos getCursoId() {
-        return CursoId;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setCursoId(Cursos cursoId) {
-        CursoId = cursoId;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public Calendar getFechahoy() {
@@ -100,10 +112,9 @@ public class Profesores implements Serializable {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
+                ", curso=" + curso +
                 ", rut='" + rut + '\'' +
+                ", foto='" + foto + '\'' +
                 '}';
     }
-
-
-
 }

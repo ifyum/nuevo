@@ -7,13 +7,21 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {CursosMapper.class})
 public interface ProfesoresMapper extends EntityMapper<ProfesoresDTO, Profesores>{
 
 
-//        @Mapping(source="cursos.id",target = "cursosId")
+        @Mapping(source="curso.id",target = "cursoId")
         ProfesoresDTO toDto(Profesores profesores);
-//        @Mapping(source="cursosId",target = "cursos")
+        @Mapping(source="cursoId",target = "curso")
         Profesores toEntity(ProfesoresDTO profesoresDTO);
 
+        default Profesores fromId(Long id) {
+                if (id == null) {
+                        return null;
+                }
+                Profesores profesores = new Profesores();
+                profesores.setId(id);
+                return profesores;
+        }
 }

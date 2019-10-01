@@ -30,7 +30,7 @@ private final ProfesoresMapper profesoresMapper;
     public ProfesoresService(
 
             ProfesoresRepository profesoresRepository,
-            CursosRepository cursosRepository,
+
             ProfesoresMapper profesoresMapper) {
 
         this.profesoresRepository = profesoresRepository;
@@ -43,6 +43,8 @@ private final ProfesoresMapper profesoresMapper;
         log.debug("weada:"+profesoresRepository.findAll().stream().map(this.profesoresMapper::toDto).collect(Collectors.toList()));
         return profesoresRepository.findAll().stream().map(this.profesoresMapper::toDto).collect(Collectors.toList());
     }
+
+
     public List<ProfesoresDTO> filtro(){
 
         log.debug("weada:"+profesoresRepository.findAll().stream().map(this.profesoresMapper::toDto).collect(Collectors.toList()));

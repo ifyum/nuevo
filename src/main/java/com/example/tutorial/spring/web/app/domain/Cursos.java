@@ -21,9 +21,9 @@ public class Cursos implements Serializable {
     private Long Sala;
 
 
-    @JoinColumn(name = "profesor_jefe_id", nullable = false)
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Profesores profesorJefe;
+    @JoinColumn(name = "profesor_jefe_id")
+    @ManyToOne
+    private Profesores profesor;
 
     @Column(name = "cantidad_alumnos")
     private Integer cantidadAlumnos;
@@ -55,12 +55,12 @@ public class Cursos implements Serializable {
         Sala = sala;
     }
 
-    public Profesores getProfesorJefe() {
-        return profesorJefe;
+    public Profesores getProfesor() {
+        return profesor;
     }
 
-    public void setProfesorJefe(Profesores profesorJefe) {
-        this.profesorJefe = profesorJefe;
+    public void setProfesor(Profesores profesor) {
+        this.profesor = profesor;
     }
 
     public Integer getCantidadAlumnos() {
@@ -92,7 +92,7 @@ public class Cursos implements Serializable {
         return "Cursos{" +
                 "id=" + id +
                 ", Sala=" + Sala +
-                ", profesor=" + profesorJefe +
+                ", profesor=" + profesor +
                 ", cantidadAlumnos=" + cantidadAlumnos +
                 ", letra=" + letra +
                 ", Curso=" + Curso +
