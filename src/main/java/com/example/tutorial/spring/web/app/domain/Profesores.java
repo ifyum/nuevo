@@ -2,6 +2,7 @@ package com.example.tutorial.spring.web.app.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Calendar;
 
 @Entity
 @Table(name="Profesores")
@@ -26,6 +27,12 @@ public class Profesores implements Serializable {
 
     @Column(name = "rut")
     private String rut;
+
+    @Column(name = "fecha_hoy")
+    private Calendar fechahoy;
+
+    @Column(name = "fecha_final")
+    private Calendar fechafinal;
 
 //mierda muy importante
     public Profesores() {
@@ -69,6 +76,22 @@ public class Profesores implements Serializable {
 
     public void setCursoId(Cursos cursoId) {
         CursoId = cursoId;
+    }
+
+    public Calendar getFechahoy() {
+        return fechahoy;
+    }
+
+    public void setFechahoy(Calendar fechahoy) {
+        this.fechahoy = fechahoy;
+    }
+
+    public Calendar getFechafinal() {
+        return fechafinal;
+    }
+
+    public void setFechafinal(Calendar fechafinal) {
+        this.fechafinal = fechafinal;
     }
 
     @Override
