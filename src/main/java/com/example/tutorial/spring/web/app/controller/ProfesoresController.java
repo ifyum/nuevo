@@ -20,7 +20,7 @@ public class ProfesoresController {
     @Autowired
     @Qualifier("profesoresService")
     private ProfesoresService profesoresService;
-    private  ProfesoresRepository profesoresRepository;
+
 
     @GetMapping( "/profesores")
         public String listar (Model model){

@@ -12,27 +12,25 @@ import com.example.tutorial.spring.web.app.models.Services.ProfesoresService;
 import com.example.tutorial.spring.web.app.models.dto.CursosDTO;
 import com.example.tutorial.spring.web.app.models.dto.ProfesoresDTO;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
-import java.time.Instant;
-import java.util.Calendar;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
 public class ApiProfesoresController {
-    private final Logger log = LoggerFactory.getLogger(ProfesoresService.class);
+    private final Logger log = LoggerFactory.getLogger(ApiProfesoresController.class);
     @Autowired
     @Qualifier("profesoresService")
     private ProfesoresService profesoresService;
@@ -45,6 +43,7 @@ public class ApiProfesoresController {
     @Autowired
     @Qualifier("fechasService")
     private FechasService fechasService;
+
 
     @GetMapping( "/profesores")
     public List<ProfesoresDTO> listarProfesores (){
@@ -73,12 +72,13 @@ public class ApiProfesoresController {
         return diaDelaSemanaService.fecha( annos);
     }
 
-    @GetMapping("/fecha1y2/{id}{dias}")
-    public Optional<ProfesoresDTO> fechas1y2(@PathVariable Long id,@PathVariable Integer dias){
+    @GetMapping("/fecha1y2/{id}/{dias}")
+     public Optional<ProfesoresDTO> fechas1y2(@PathVariable("id") Long id,@PathVariable("dias") Integer dias){
         log.debug("id: "+id+" dias: "+dias);
-        profesoresService.dias((long) 1,2);
-
+        profesoresService.dias(id,dias);
+//      Optional  profesoresDTO = profesoresService.findById(id);
         return profesoresService.findById(id);
+
     }
 
 

@@ -72,8 +72,9 @@ private final ProfesoresMapper profesoresMapper;
 
     public void dias(Long id, Integer dias){
         Profesores profesores = profesoresRepository.buscardId(id);
-         // profesores.setFechahoy(Instant.now());
+          profesores.setFechahoy(Instant.now());
        log.debug("resultado qlo: "+profesores.getFechahoy());
+       log.debug("fecha hoy: "+ profesores.getFechahoy());
         Date diahoy = Date.from(profesores.getFechahoy());
         log.debug("fechad e hoy: "+diahoy);
         fechasService.sumarRestarDias(diahoy,dias);
