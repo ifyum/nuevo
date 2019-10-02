@@ -3,6 +3,9 @@ package com.example.tutorial.spring.web.app.models.Services;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 
 
 @Service("diaDelaSemanaService")
@@ -32,6 +35,7 @@ public class DiaDelaSemanaService {
     }
 
     private  Calendar calculaElDia( int anyo) {
+        //si arriba agrego ademas del año el dia y el mes seria util
         int dia =25;
         int mes = 12;
 
@@ -89,7 +93,7 @@ public class DiaDelaSemanaService {
     }
 
 
-    public void fecha ( String[] anno) {
+    public List fecha (String[] anno) {
         if (anno.length==0) {
             System.err.println("Por favor indique el año cuyas fechas quiere calcular.");
             System.exit(3);
@@ -147,5 +151,8 @@ public class DiaDelaSemanaService {
         System.out.println("Corpus Christi:                        "+frase(corpusChristi            )+".");
         System.out.println("navidad:                               "+frase(navidad                  )+".");
 
+     List datos = Collections.singletonList(frase(navidad));
+
+     return datos;
     }
 }

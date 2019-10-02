@@ -1,7 +1,8 @@
 package com.example.tutorial.spring.web.app.models.dto;
 
 
-import java.io.Serializable;
+
+import java.time.Instant;
 
 public class ProfesoresDTO {
 
@@ -11,6 +12,9 @@ public class ProfesoresDTO {
     private Long cursoId;
   private String rut;
  private String foto;
+    private Instant fechahoy;
+
+    private Instant fechafinal;
   public long getId() {
     return id;
   }
@@ -59,14 +63,33 @@ public class ProfesoresDTO {
     this.foto = foto;
   }
 
-  @Override
-  public String toString() {
-    return "ProfesoresDTO{" +
-            "id=" + id +
-            ", apellido='" + apellido + '\'' +
-            ", nombre='" + nombre + '\'' +
-            ", rut='" + rut + '\'' +
-            ", curso=" + cursoId +
-            '}';
-  }
+    public Instant getFechahoy() {
+        return fechahoy;
+    }
+
+    public void setFechahoy(Instant fechahoy) {
+        this.fechahoy = fechahoy;
+    }
+
+    public Instant getFechafinal() {
+        return fechafinal;
+    }
+
+    public void setFechafinal(Instant fechafinal) {
+        this.fechafinal = fechafinal;
+    }
+
+    @Override
+    public String toString() {
+        return "ProfesoresDTO{" +
+                "id=" + id +
+                ", apellido='" + apellido + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", cursoId=" + cursoId +
+                ", rut='" + rut + '\'' +
+                ", foto='" + foto + '\'' +
+                ", fechahoy=" + fechahoy +
+                ", fechafinal=" + fechafinal +
+                '}';
+    }
 }

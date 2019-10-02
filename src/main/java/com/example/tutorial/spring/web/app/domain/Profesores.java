@@ -2,7 +2,9 @@ package com.example.tutorial.spring.web.app.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @Table(name="Profesores")
@@ -31,10 +33,10 @@ public class Profesores implements Serializable {
     private String foto;
 
     @Column(name = "fecha_hoy")
-    private Calendar fechahoy;
+    private Instant fechahoy;
 
     @Column(name = "fecha_final")
-    private Calendar fechafinal;
+    private Instant fechafinal;
 
 //mierda muy importante
     public Profesores() {
@@ -90,19 +92,19 @@ public class Profesores implements Serializable {
         this.foto = foto;
     }
 
-    public Calendar getFechahoy() {
+    public Instant getFechahoy() {
         return fechahoy;
     }
 
-    public void setFechahoy(Calendar fechahoy) {
+    public void setFechahoy(Instant fechahoy) {
         this.fechahoy = fechahoy;
     }
 
-    public Calendar getFechafinal() {
+    public Instant getFechafinal() {
         return fechafinal;
     }
 
-    public void setFechafinal(Calendar fechafinal) {
+    public void setFechafinal(Instant fechafinal) {
         this.fechafinal = fechafinal;
     }
 
@@ -115,6 +117,8 @@ public class Profesores implements Serializable {
                 ", curso=" + curso +
                 ", rut='" + rut + '\'' +
                 ", foto='" + foto + '\'' +
+                ", fechahoy=" + fechahoy +
+                ", fechafinal=" + fechafinal +
                 '}';
     }
 }

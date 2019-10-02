@@ -43,4 +43,12 @@ public class FechasService {
     }
 
 
+
+
+    public Date  sumarRestarDias(Date fecha, int dias){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        calendar.add(Calendar.DAY_OF_YEAR,dias);
+        return  calendar.getTime();
+    }
 }
