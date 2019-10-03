@@ -1,7 +1,9 @@
 version: '2'
 services:
-  ifyum-postgreswl:
-    image: postgres:9.6.2
+  ifyum-postgres:
+    image: postgres:latest
+#    ultima version usar
+#    image: postgres:latest
     # volumes:
     #     - ~/volumes/jhipster/ifyummysql/mysql/:/var/lib/mysql/
     environment:
