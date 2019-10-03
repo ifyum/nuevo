@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 
 @Service("profesoresService")
-//@Transac1tional
+
 
 public class ProfesoresService {
     private final Logger log = LoggerFactory.getLogger(ProfesoresService.class);

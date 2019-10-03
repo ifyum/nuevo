@@ -1,0 +1,13 @@
+version: '2'
+services:
+  ifyum-postgreswl:
+    image: postgres:9.6.2
+    # volumes:
+    #     - ~/volumes/jhipster/ifyummysql/mysql/:/var/lib/mysql/
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
+#
+  
