@@ -4,8 +4,7 @@ services:
     image: postgres:latest
 #    ultima version usar
 #    image: postgres:latest
-    # volumes:
-    #     - ~/volumes/jhipster/ifyummysql/mysql/:/var/lib/mysql/
+
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=
