@@ -75,6 +75,7 @@ public class ApiProfesoresController {
     @GetMapping("/fecha1y2/{id}/{dias}")
      public Optional<ProfesoresDTO> fechas1y2(@PathVariable("id") Long id,@PathVariable("dias") Integer dias){
         log.debug("id: "+id+" dias: "+dias);
+        System.out.println("id: "+id+" dias: "+dias);
         profesoresService.dias(id,dias);
 //      Optional  profesoresDTO = profesoresService.findById(id);
         return profesoresService.findById(id);

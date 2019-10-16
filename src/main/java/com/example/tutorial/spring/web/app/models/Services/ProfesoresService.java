@@ -4,11 +4,13 @@ import com.example.tutorial.spring.web.app.domain.Profesores;
 import com.example.tutorial.spring.web.app.models.Mapper.ProfesoresMapper;
 import com.example.tutorial.spring.web.app.models.dto.ProfesoresDTO;
 import com.example.tutorial.spring.web.app.repository.ProfesoresRepository;
+import net.bytebuddy.description.type.TypeList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import sun.invoke.empty.Empty;
 
 import java.time.Instant;
 import java.time.temporal.TemporalAccessor;
@@ -28,7 +30,7 @@ public class ProfesoresService {
 
     private ProfesoresRepository profesoresRepository;
     @Autowired
-    @Qualifier("fechasService")
+
     private FechasService fechasService;
 
 private final ProfesoresMapper profesoresMapper;
@@ -81,10 +83,17 @@ private final ProfesoresMapper profesoresMapper;
 
         log.debug("resultado qlo: "+ fechasService.sumarRestarDias(diahoy,dias)+".");
 
-        Date fechaqla =fechasService.sumarRestarDias(diahoy,dias);
-Instant fechadehoy =   fechaqla.toInstant();
+        List<Date> listaFechasNoLaborables = null;
 
-         profesores.setFechafinal(fechadehoy);
+//        Date fechaqla =fechasService.sumarRestarDias(diahoy,dias);
+        Date fechaqla =fechasService.calcularFecha(diahoy,dias,listaFechasNoLaborables);
+
+       Instant fechadiafinal =   fechaqla.toInstant();
+
+         profesores.setFechafinal(fechadiafinal);
+        System.out.println("fecha inicial: "+diahoy);
+        System.out.println("fecha final: "+fechadiafinal);
+
           profesoresRepository.save(profesores);
 
 
